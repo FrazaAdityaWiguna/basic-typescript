@@ -1,25 +1,27 @@
+// explicit types
+let char: string, age: number, isLoggedIn: boolean;
+
+char = "Raja";
+age = 20;
+isLoggedIn = true;
+
 // arrays
-// array just contain string
-let names = ["Nada", "Arrasy", "Tegar"];
-names.push("Raja");
+let people: string[] = [];
+people.push("Fraza");
 
-// arrays just contain number
-let nums = [9, 12, 6];
-nums.push(10);
+// union types
+let mixed: (string | number | boolean)[] = [];
+mixed.push("Nada");
+mixed.push(22);
+mixed.push(true);
 
-// arrays just contain string and number
-let mixed = ["Batam", 12, "Tangerang", 09];
-mixed.push("Bali");
-mixed.push(30);
-mixed[0] = 912;
+let uid: string | number;
+uid = "123";
+uid = 123;
 
-// Objects
-let person = {
-  name: "Nada",
-  height: 155,
-  age: 22,
-};
+// objects
+let peopleOne: object;
+peopleOne = { name: "Arrasy", age: 9 };
 
-person.name = "Fraza";
-person.height = 174;
-person.age = 20;
+let peopleTwo: { name: string; age: number };
+peopleTwo = { name: "Tegar", age: 7 };

@@ -1,21 +1,21 @@
+// explicit types
+var char, age, isLoggedIn;
+char = "Raja";
+age = 20;
+isLoggedIn = true;
 // arrays
-// array just contain string
-var names = ["Nada", "Arrasy", "Tegar"];
-names.push("Raja");
-// arrays just contain number
-var nums = [9, 12, 6];
-nums.push(10);
-// arrays just contain string and number
-var mixed = ["Batam", 12, "Tangerang", 09];
-mixed.push("Bali");
-mixed.push(30);
-mixed[0] = 912;
-// Objects
-var person = {
-    name: "Nada",
-    height: 155,
-    age: 22
-};
-person.name = "Fraza";
-person.height = 174;
-person.age = 20;
+var people = [];
+people.push("Fraza");
+// union types
+var mixed = [];
+mixed.push("Nada");
+mixed.push(22);
+mixed.push(true);
+var uid;
+uid = "123";
+uid = 123;
+// objects
+var peopleOne;
+peopleOne = { name: "Arrasy", age: 9 };
+var peopleTwo;
+peopleTwo = { name: "Tegar", age: 7 };
