@@ -1,27 +1,14 @@
-// explicit types
-let char: string, age: number, isLoggedIn: boolean;
+// any Types
+let word: any = "Nada";
 
-char = "Raja";
-age = 20;
-isLoggedIn = true;
+word = 20;
+word = true;
 
-// arrays
-let people: string[] = [];
-people.push("Fraza");
+let mixed: any[] = [];
+mixed.push(word);
+mixed.push("word");
+mixed.push(9);
+mixed.push(false);
 
-// union types
-let mixed: (string | number | boolean)[] = [];
-mixed.push("Nada");
-mixed.push(22);
-mixed.push(true);
-
-let uid: string | number;
-uid = "123";
-uid = 123;
-
-// objects
-let peopleOne: object;
-peopleOne = { name: "Arrasy", age: 9 };
-
-let peopleTwo: { name: string; age: number };
-peopleTwo = { name: "Tegar", age: 7 };
+let people: { name: any; age: any };
+people = { name: "Fraza", age: 20 };

@@ -1,21 +1,11 @@
-// explicit types
-var char, age, isLoggedIn;
-char = "Raja";
-age = 20;
-isLoggedIn = true;
-// arrays
-var people = [];
-people.push("Fraza");
-// union types
+// any Types
+var word = "Nada";
+word = 20;
+word = true;
 var mixed = [];
-mixed.push("Nada");
-mixed.push(22);
-mixed.push(true);
-var uid;
-uid = "123";
-uid = 123;
-// objects
-var peopleOne;
-peopleOne = { name: "Arrasy", age: 9 };
-var peopleTwo;
-peopleTwo = { name: "Tegar", age: 7 };
+mixed.push(word);
+mixed.push("word");
+mixed.push(9);
+mixed.push(false);
+var people;
+people = { name: "Fraza", age: 20 };
