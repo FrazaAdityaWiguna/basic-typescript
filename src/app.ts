@@ -1,41 +1,29 @@
-// interfaces
-interface IsPerson {
-  name: string;
-  age: number;
-  speak(a: string): void;
-  spend(a: number): number;
-}
-
-const me: IsPerson = {
-  name: "Fraza",
-  age: 20,
-  speak(text: string): void {
-    console.log(text);
-  },
-  spend(amount: number): number {
-    console.log("I spend", amount);
-    return amount;
-  },
-};
-
-const greetPerson = (person: IsPerson) => {
-  console.log("hello ", person.name);
-};
-greetPerson(me);
-console.log(me);
-
 import { Invoice } from "./classes/Invoice.js";
+import { Payment } from "./classes/Payment.js";
+import { HasFormatter } from "./interfaces/HasFormatter.js";
 
-const invOne = new Invoice("Nada", "work on Nada website", 250);
-const invTwo = new Invoice("Fraza", "work on Fraza website", 300);
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
 
-let invoices: Invoice[] = [];
-invoices.push(invOne);
-invoices.push(invTwo);
+// docOne = new Invoice("Arrasy", "web work", 500);
+// docTwo = new Payment("Tegar", "Arshitec work", 600);
 
-invoices.forEach((inv) => {
-  console.log(inv.format());
-});
+// let docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
+
+// console.log(docs);
+
+// const invOne = new Invoice("Nada", "work on Nada website", 250);
+// const invTwo = new Invoice("Fraza", "work on Fraza website", 300);
+
+// let invoices: Invoice[] = [];
+// invoices.push(invOne);
+// invoices.push(invTwo);
+
+// invoices.forEach((inv) => {
+//   console.log(inv.format());
+// });
 
 // Form
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
@@ -49,5 +37,13 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 
-  console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+  let doc: HasFormatter;
+
+  if (type.value === "invoice") {
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+  } else {
+    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+  }
+
+  console.log(doc);
 });
