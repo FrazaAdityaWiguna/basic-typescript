@@ -20,39 +20,26 @@ form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 
   let doc: HasFormatter;
+  let values: [string, string, number];
+  values = [tofrom.value, details.value, amount.valueAsNumber];
 
   if (type.value === "invoice") {
-    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Invoice(...values);
   } else {
-    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    doc = new Payment(...values);
   }
 
   list.render(doc, type.value, "end");
 });
 
-// Enums
-enum ResourceType {
-  AUTHOR = 1,
-  BOOK,
-  PERSON,
-  DIRECTOR,
-}
-interface Resource<T> {
-  uid: number | string;
-  resourceType: ResourceType;
-  data: T;
-}
+// Tuples
+let arr = ["Fraza", 20, true];
+arr[0] = false;
+arr[1] = "Nada";
+arr[2] = 22;
 
-const docOne: Resource<object> = {
-  uid: 1,
-  resourceType: ResourceType.AUTHOR,
-  data: { title: "a thousand years" },
-};
+let tup: [string, number, boolean] = ["Arrasy", 7, true];
+tup[0] = "Tegar";
 
-const docTwo: Resource<object> = {
-  uid: 9,
-  resourceType: ResourceType.DIRECTOR,
-  data: { name: "Fraza" },
-};
-
-console.log(docOne, docTwo);
+let students: [string, number, boolean];
+students = ["Andreas", 32234, true];

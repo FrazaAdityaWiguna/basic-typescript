@@ -14,30 +14,22 @@ const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     let doc;
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     if (type.value === "invoice") {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     list.render(doc, type.value, "end");
 });
-// Enums
-var ResourceType;
-(function (ResourceType) {
-    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
-    ResourceType[ResourceType["BOOK"] = 2] = "BOOK";
-    ResourceType[ResourceType["PERSON"] = 3] = "PERSON";
-    ResourceType[ResourceType["DIRECTOR"] = 4] = "DIRECTOR";
-})(ResourceType || (ResourceType = {}));
-const docOne = {
-    uid: 1,
-    resourceType: ResourceType.AUTHOR,
-    data: { title: "a thousand years" },
-};
-const docTwo = {
-    uid: 9,
-    resourceType: ResourceType.DIRECTOR,
-    data: { name: "Fraza" },
-};
-console.log(docOne, docTwo);
+// Tuples
+let arr = ["Fraza", 20, true];
+arr[0] = false;
+arr[1] = "Nada";
+arr[2] = 22;
+let tup = ["Arrasy", 7, true];
+tup[0] = "Tegar";
+let students;
+students = ["Andreas", 32234, true];
